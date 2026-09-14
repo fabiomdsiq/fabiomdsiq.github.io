@@ -10,7 +10,7 @@ Os dois modos podem ser alternados pelo controle Yin–Yang no cabeçalho.
 ## Tecnologias
 
 - Python e APIs REST
-- Telegram e WhatsApp
+- WhatsApp e plataformas de mensageria
 - Dashboards interativos
 - OpenAI / GPT
 - Webhooks, bancos de dados e planilhas
