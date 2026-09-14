@@ -11,6 +11,7 @@ const dashboardInsight = document.querySelector('[data-dashboard-insight]');
 const dashboardSection = document.querySelector('#dashboard');
 const whatsappOrbit = document.querySelector('[data-whatsapp-orbit]');
 const whatsappContext = document.querySelector('[data-whatsapp-context]');
+const worldSwitch = document.querySelector('[data-world-switch]');
 
 const dashboardInsights = {
   geral: 'Centralize indicadores, acompanhe gargalos e transforme dados dispersos em decisões rápidas.',
@@ -31,6 +32,9 @@ const whatsappMessages = {
 };
 
 requestAnimationFrame(() => whatsappOrbit?.classList.add('is-ready'));
+worldSwitch?.addEventListener('click', () => {
+  try { localStorage.setItem('fabiomdsiq-world', 'ia'); } catch { /* A troca de layout continua funcionando sem persistência. */ }
+});
 
 if (whatsappOrbit && whatsappContext) {
   const contactSections = [...document.querySelectorAll('main section[id]')];

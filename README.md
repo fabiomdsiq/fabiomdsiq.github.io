@@ -1,6 +1,11 @@
 # Portfólio — fabiomdsiq
 
-Site profissional de **fabiomdsiq**, desenvolvedor Python especializado em bots, chatbots, dashboards, APIs, integrações e automações.
+Site profissional de **fabiomdsiq** com dois layouts complementares:
+
+- **Automações** — Python, bots, chatbots, dashboards, APIs e integrações.
+- **IA + Google** — inteligência artificial aplicada, ecossistema Google, dados e engenharia de sistemas.
+
+Os dois modos podem ser alternados pelo controle Yin–Yang no cabeçalho.
 
 ## Tecnologias
 
@@ -14,6 +19,9 @@ Site profissional de **fabiomdsiq**, desenvolvedor Python especializado em bots,
 ## Publicação
 
 Este projeto é publicado automaticamente pelo GitHub Pages a partir da branch `main`.
+
+- Layout Automações: <https://fabiomdsiq.github.io/>
+- Layout IA + Google: <https://fabiomdsiq.github.io/ia/>
 
 ## Contato direto
 
