@@ -9,6 +9,8 @@ const dashboardCapabilities = [...document.querySelectorAll('[data-capability-li
 const dashboardTechnologies = [...document.querySelectorAll('[data-dashboard-tech] li')];
 const dashboardInsight = document.querySelector('[data-dashboard-insight]');
 const dashboardSection = document.querySelector('#dashboard');
+const whatsappOrbit = document.querySelector('[data-whatsapp-orbit]');
+const whatsappContext = document.querySelector('[data-whatsapp-context]');
 
 const dashboardInsights = {
   geral: 'Centralize indicadores, acompanhe gargalos e transforme dados dispersos em decisões rápidas.',
@@ -16,6 +18,55 @@ const dashboardInsights = {
   integracoes: 'Monitore APIs, webhooks, pagamentos e sincronizações com alertas claros para cada etapa da operação.',
   dados: 'Transforme planilhas, bancos e fontes externas em gráficos atualizados, filtros úteis e relatórios acionáveis.',
 };
+
+const whatsappMessages = {
+  inicio: 'Vamos transformar sua ideia em solução',
+  sobre: 'Experiência para desenvolver com segurança',
+  solucoes: 'Qual solução combina com seu projeto?',
+  dashboard: 'Quer um dashboard assim para seu negócio?',
+  projetos: 'Encontrou um projeto parecido com o seu?',
+  processo: 'Podemos começar com um MVP bem definido',
+  tecnologias: 'Vamos conectar as ferramentas certas',
+  contato: 'Agora é só me contar a sua ideia',
+};
+
+requestAnimationFrame(() => whatsappOrbit?.classList.add('is-ready'));
+
+if (whatsappOrbit && whatsappContext) {
+  const contactSections = [...document.querySelectorAll('main section[id]')];
+  let whatsappTicking = false;
+  const updateWhatsappContext = () => {
+    const focusLine = window.innerHeight * 0.38;
+    let activeSection = contactSections.find((section) => {
+      const rect = section.getBoundingClientRect();
+      return rect.top <= focusLine && rect.bottom > focusLine;
+    });
+    if (!activeSection) {
+      for (let index = contactSections.length - 1; index >= 0; index -= 1) {
+        if (contactSections[index].getBoundingClientRect().top <= focusLine) {
+          activeSection = contactSections[index];
+          break;
+        }
+      }
+    }
+    const active = activeSection?.id;
+
+    if (!active || !whatsappMessages[active]) return;
+    whatsappContext.textContent = whatsappMessages[active];
+    whatsappOrbit.dataset.section = active;
+    whatsappTicking = false;
+  };
+
+  const queueWhatsappUpdate = () => {
+    if (whatsappTicking) return;
+    whatsappTicking = true;
+    requestAnimationFrame(updateWhatsappContext);
+  };
+
+  updateWhatsappContext();
+  window.addEventListener('scroll', queueWhatsappUpdate, { passive: true });
+  window.addEventListener('resize', queueWhatsappUpdate);
+}
 
 if (new URLSearchParams(window.location.search).get('view') === 'dashboard') {
   document.documentElement.classList.add('direct-dashboard');

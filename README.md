@@ -18,4 +18,4 @@ Este projeto é publicado automaticamente pelo GitHub Pages a partir da branch `
 ## Contato direto
 
 - [Telegram @fabiomdsiq](https://t.me/fabiomdsiq)
-- [WhatsApp (47) 99688-7849](https://wa.me/5547996887849)
+- [Falar com fabiomdsiq no WhatsApp](https://wa.me/5547996887849)
