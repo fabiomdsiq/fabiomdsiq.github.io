@@ -25,5 +25,4 @@ Este projeto é publicado automaticamente pelo GitHub Pages a partir da branch `
 
 ## Contato direto
 
-- [Telegram @fabiomdsiq](https://t.me/fabiomdsiq)
-- [Falar com fabiomdsiq no WhatsApp](https://wa.me/5547996887849)
+O contato é iniciado pelo botão flutuante de WhatsApp presente nos dois layouts.

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-labelledby="title">
+  <title id="title">Símbolo Yin–Yang dos dois layouts</title>
+  <defs>
+    <filter id="shadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#071a3a" flood-opacity=".24"/>
+    </filter>
+  </defs>
+  <circle cx="24" cy="24" r="21" fill="#071a3a" stroke="#d8e2ee" stroke-width="2" filter="url(#shadow)"/>
+  <path d="M24 3a21 21 0 0 0 0 42 10.5 10.5 0 0 0 0-21 10.5 10.5 0 0 1 0-21Z" fill="#00975f"/>
+  <circle cx="24" cy="13.5" r="3.2" fill="#071a3a"/>
+  <circle cx="24" cy="34.5" r="3.2" fill="#00975f"/>
+  <circle cx="24" cy="24" r="20.2" fill="none" stroke="#ffffff" stroke-opacity=".38" stroke-width="1"/>
+</svg>
