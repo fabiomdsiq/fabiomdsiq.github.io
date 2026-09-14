@@ -4,6 +4,25 @@ const nav = document.querySelector('.main-nav');
 const filters = [...document.querySelectorAll('.filter')];
 const projects = [...document.querySelectorAll('.project-row')];
 const emptyState = document.querySelector('.empty-state');
+const dashboardTabs = [...document.querySelectorAll('[data-dashboard-view]')];
+const dashboardCapabilities = [...document.querySelectorAll('[data-capability-list] .capability')];
+const dashboardTechnologies = [...document.querySelectorAll('[data-dashboard-tech] li')];
+const dashboardInsight = document.querySelector('[data-dashboard-insight]');
+const dashboardSection = document.querySelector('#dashboard');
+
+const dashboardInsights = {
+  geral: 'Centralize indicadores, acompanhe gargalos e transforme dados dispersos em decisões rápidas.',
+  bots: 'Acompanhe conversas, aprovações, atendimentos e falhas dos seus bots e chatbots em uma única visão.',
+  integracoes: 'Monitore APIs, webhooks, pagamentos e sincronizações com alertas claros para cada etapa da operação.',
+  dados: 'Transforme planilhas, bancos e fontes externas em gráficos atualizados, filtros úteis e relatórios acionáveis.',
+};
+
+if (new URLSearchParams(window.location.search).get('view') === 'dashboard') {
+  document.documentElement.classList.add('direct-dashboard');
+  window.addEventListener('load', () => {
+    setTimeout(() => dashboardSection?.scrollIntoView({ block: 'start' }), 80);
+  }, { once: true });
+}
 
 const setHeaderState = () => header?.classList.toggle('is-scrolled', window.scrollY > 12);
 setHeaderState();
@@ -47,6 +66,32 @@ filters.forEach((filterButton) => {
       if (show) visible += 1;
     });
     if (emptyState) emptyState.hidden = visible !== 0;
+  });
+});
+
+dashboardTabs.forEach((tab) => {
+  tab.addEventListener('click', () => {
+    const view = tab.dataset.dashboardView;
+
+    dashboardTabs.forEach((button) => {
+      const active = button === tab;
+      button.classList.toggle('is-active', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
+
+    dashboardCapabilities.forEach((item) => {
+      const focused = view === 'geral' || item.dataset.area === view;
+      item.classList.toggle('is-focused', view !== 'geral' && focused);
+      item.classList.toggle('is-muted', !focused);
+    });
+
+    dashboardTechnologies.forEach((item) => {
+      const focused = view === 'geral' || item.dataset.area === view;
+      item.classList.toggle('is-highlighted', focused);
+      item.classList.toggle('is-muted', !focused);
+    });
+
+    if (dashboardInsight) dashboardInsight.textContent = dashboardInsights[view];
   });
 });
 
